@@ -1,0 +1,19 @@
+{
+    "name": "time_up",
+    "version": "1.0.0",
+    "description": "This game is game online for play with your friends when you are locked in your house",
+    "main": "server.js",
+    "scripts": {
+        "test": "npm run test",
+        "start": "node server.js"
+    },
+    "author": "julien Leotier",
+    "license": "ISC",
+    "dependencies": {
+        "pg": "^7.18.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/username/repository.git"
+    }
+}
