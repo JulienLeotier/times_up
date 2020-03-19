@@ -593,10 +593,43 @@ const getPlayerNumber = () => {
     localStorage.setItem('playerId', number.value);
     document.getElementById('Bienvenue').style.display = "none";
     document.getElementById('addWordSection').style.display = "block";
+    setInterval(() => {
+        var myHeaders = new Headers();
 
+        var myInit = {
+            method: 'GET',
+            headers: myHeaders,
+            mode: 'cors',
+            cache: 'default'
+        };
+
+        var myRequest = new Request(`/score/${localStorage.getItem('playerId')}`, myInit);
+        fetch(myRequest, myInit)
+            .then(response => response.json())
+            .then(response => {
+                document.getElementById('myScore').innerHTML = `<strong>Score</strong><br>: ${response.score}`
+
+            })
+            .catch(error => console.log("Erreur : " + error));
+    }, 1000)
 }
 const sendWord = () => {
+    document.getElementById('AddWordExplain').innerHTML = ""
     let word = document.getElementById('addWord').value;
+    fetch(`/add_word`, {
+            method: 'POST',
+            body: JSON.stringify({ word }),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            document.getElementById('AddWordExplain').innerHTML = `Le mot ${response.word} a bien été ajouté`
+        })
+        .catch(error => console.log("Erreur : " + error));
     console.log(word)
 }
 
@@ -609,6 +642,27 @@ const startPlay = () => {
 
 const startTimmer = () => {
     document.getElementById('guessSection').style.display = "block"
+    fetch(`/one_word`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            if (response.message) {
+                document.getElementById('wordRamdom').innerText = `La manche est fini ! Félicitation`
+                document.getElementById("startTimmer").innerHTML = "FINI ATTENDS TON TOUR POUR RECOMMENCER";
+                document.getElementById('guessSection').style.display = "none"
+            } else {
+                console.log(response)
+                document.getElementById('wordRamdom').innerText = `${response.word}`
+            }
+            localStorage.setItem('word', response.word)
+            localStorage.setItem('id', response.id)
+        })
+        .catch(error => console.log("Erreur : " + error));
     var countDownDate = new Date();
     countDownDate.setSeconds(countDownDate.getSeconds() + 31)
     var x = setInterval(function() {
@@ -628,17 +682,86 @@ const startTimmer = () => {
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("startTimmer").innerHTML = "FINI ATTENDS TON TOUR POUR RECOMMENCER";
-            document.getElementById('guessSection').style.display = "none"
+            fetch(`/end_turn`, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(response => {
+                    console.log(response)
+                    document.getElementById("startTimmer").innerHTML = "FINI ATTENDS TON TOUR POUR RECOMMENCER";
+                    document.getElementById('guessSection').style.display = "none"
+                })
+                .catch(error => console.log("Erreur : " + error));
+
         }
     }, 1000);
     document.getElementById('startTimmer').innerText = '30 s'
-    document.getElementById('wordRamdom').innerText = "un mot très connu"
 }
 const otherWord = () => {
-    document.getElementById('score').innerText = "le Score prends plus 1 !!!!"
-    document.getElementById('wordRamdom').innerText = "un autre mot très connu"
+    fetch(`/add_found_word`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                word: localStorage.getItem('word'),
+                player: localStorage.getItem('playerId'),
+                id: localStorage.getItem('id')
+            })
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error => console.log("Erreur : " + error));
+    fetch(`/one_word`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            localStorage.setItem('word', response.word)
+            localStorage.setItem('id', response.id)
+            if (response.message) {
+                document.getElementById('wordRamdom').innerText = `La manche est fini ! Félicitation`
+                document.getElementById("startTimmer").innerHTML = "FINI ATTENDS TON TOUR POUR RECOMMENCER";
+                document.getElementById('guessSection').style.display = "none"
+            } else {
+                document.getElementById('wordRamdom').innerText = `${response.word}`
+            }
+            console.log(response)
+        })
+        .catch(error => console.log("Erreur : " + error));
 }
 const pending = () => {
-    document.getElementById('wordRamdom').innerText = "un autre mot très connu mais vous avez déja passé"
+    fetch(`/one_word`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            document.getElementById('wordRamdom').innerText = `${response.word}`
+            localStorage.setItem('word', response.word)
+            localStorage.setItem('id', response.id)
+            if (response.message) {
+                document.getElementById('wordRamdom').innerText = `La manche est fini ! Félicitation`
+                document.getElementById("startTimmer").innerHTML = "FINI ATTENDS TON TOUR POUR RECOMMENCER";
+                document.getElementById('guessSection').style.display = "none"
+            } else {
+                document.getElementById('wordRamdom').innerText = `${response.word}`
+            }
+        })
+        .catch(error => console.log("Erreur : " + error));
 }

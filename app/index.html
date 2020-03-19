@@ -28,7 +28,12 @@
                     <img src="images/layout/rules-top-border.png" title="Time's Up! Party" alt="Time's Up! Party" class="border-top">
 
                     <div class="intro-round" style="height: 100%;">
-                        <h2><strong>Bienvenue</strong><br>dans Time's Up! Party<img src="images/layout/interrogation.png" title="Time's Up! Party" alt="Time's Up! Party" data-sr="enter bottom and hustle 100px over 2.5s"></h2>
+                        <h2>
+                            <div id="myScore">
+                                <strong>Bienvenue</strong><br>dans Time's Up! Party
+                            </div>
+                            <img src="images/layout/interrogation.png" title="Time's Up! Party" alt="Time's Up! Party" data-sr="enter bottom and hustle 100px over 2.5s">
+                        </h2>
                         <div id="Bienvenue">
                             <p>Ecrits le numéro de ton équipe</p>
                             <input type="number" id="playerNumber" />
@@ -36,14 +41,14 @@
                         </div>
 
                         <div id="addWordSection" style="display: none;">
-                            <h1>Ajout X mot</h1>
+                            <h1>Ajouter un mot</h1>
                             <input type="text" id="addWord" />
+                            <p id="AddWordExplain"></p>
                             <button onclick="sendWord()">Send</button>
                             <button onclick="startPlay()">Finish</button>
                         </div>
 
                         <div id="playSession" style="display: none;">
-                            <p id="score">Score de l'équipe</p>
                             <p id="startTimmer">TIMER</p>
                             <button onclick="startTimmer()">Start</button>
                         </div>
@@ -120,6 +125,19 @@
                 });
             })
             //]]>
+    </script>
+    <script>
+        var ws = new WebSocket('ws://127.0.0.1:40510'); // event emmited when connected
+        ws.onopen = function() {
+                console.log('websocket is connected ...') // sending a send event to websocket server
+                ws.send('connected')
+            } // event emmited when receiving message 
+        ws.onmessage = function(ev) {
+            if (ev.data === 'Nouvelle manche') {
+                alert('MANCHE SUIVANTE')
+            }
+            console.log(ev);
+        }
     </script>
 </body>
 
