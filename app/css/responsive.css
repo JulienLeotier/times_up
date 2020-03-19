@@ -1,0 +1,119 @@
+@media screen and (max-width:1850px){
+}
+@media screen and (max-width:1370px){
+
+}
+@media screen and (max-width:1300px){
+
+}
+@media screen and (max-width:1200px){
+	
+	.app ul li{ width: 20%;}
+	
+}
+@media screen and (max-width:1100px){
+	.site{ width: 100%;}
+}
+@media screen and (max-width:1050px){
+	header hgroup h1{ margin-left: -450px;}
+	header div .pirate-chateau{ bottom: 280px;}
+	header .cloud-xs{ margin-top: 16%;}
+	header .fox{ left: 20%;}
+	header .knight{ left: 0;}
+	header a.discover{ bottom: 30px;}
+	
+	.describe .box{ padding: 60px 2% 0; text-align: center;}
+	.describe .number-1{ background: url(../../images/describe/number-1.png) no-repeat center top; margin-top: 100px;}
+	.describe .number-2{ background: url(../../images/describe/number-2.png) no-repeat center top; width: 40%;}
+	.describe .step-01{ width: 700px;}
+	
+	.contest .box{ width: 35%; padding-left: 5%;}
+	
+}
+@media screen and (max-width:985px){
+	header{ 	height: 920px;}
+	header hgroup h1{ margin-top: 160px; left: 50%; margin-left: -261px;}
+	header hgroup span{ left: 0; margin-left: 0; margin-top: 85px; width: 100%; text-align: center;}
+	header .grass{ background: url(../../images/header/times-up-kids-herbe-mobile.png) no-repeat center bottom;}
+	header .spirales img{ position: absolute; left: 50%; margin-left: -800px;}
+	header .castel-back, header .castel-front{ position:absolute; left: 50%; bottom: 245px; margin-left: -120px;}
+	header .pirate-chateau{ margin-left: 0;}
+	header div:hover .pirate-chateau{ bottom: 280px;}
+	header img:hover.castel-front{ bottom: 150px;}
+	header .timer, header .sousmarin, header .vache, header .chevalier, header .fox, header .knight, .cloud-m, .cloud-xl, header .kingsbox{ display: none;}
+	header .cloud-xs{ right: 0; margin-top: 35%;}
+	header a.discover{ bottom: 150px; margin-left: 0;}
+	header ul.langchoice{ top: -20px; right: 50%; margin-right: -110px;}
+	header .kingsbox-responsive{ display: block;}
+	
+	.box-tup .box-components{ position:relative; left: 50%; margin-left: -295px; top: 0;}
+	.box-tup h2{ margin-bottom: 40px;}
+	.box-tup h4,
+	.box-tup .boxtxt{ width: 84%; padding: 4%; margin-left: 4%; float: left; text-align: center;}
+	.box-tup ul{ right: 50%; margin-right: -140px;}
+	
+	.describe .box{ padding: 70px 0 0 0; float: left; margin-top: 40px; width: 100%;}
+	.describe .box h3{ text-shadow: 3px 3px 3px #c7c7c7;}
+	.describe .number-2{ width: 100%;}	
+	.describe .step-01{ float: left; position: relative; left: 50%; margin-left: -350px;}
+	.describe .step-02{ float: right; position: relative; right: 50%; margin-right: -225px;}
+	
+	.contest .box{ float: left; width: 90%; margin: 0 5%; text-align: center; padding: 0;}
+	.contest .fb-share-button{ margin-left: 0;}
+	.contest p.legend{ margin-top: 4em;}
+	
+}
+@media screen and (max-width:870px){
+	header .cloud-xs{ display: none;}
+	header .kingsbox-responsive{ display: none;}
+	.app{ padding-bottom: 100px;}
+	.tup{ padding-top: 100px;}
+}
+@media screen and (max-width:710px){
+	.describe{ overflow: hidden;}
+	.describe .step-01{ margin-left: -400px;}
+	.describe .step-01 .airplane,
+	.describe .step-01 .bee{ display: none;}
+	
+	.tup{ background: #004d7f; float: left; padding-bottom: 0; width: 100%;}
+	.tup h2{ text-shadow: none; color: #fff; margin: 1em 0;}
+	.tup a.tuplink{ padding-top: 0; margin: 0; width: 100%; font-size: 2.2em;}
+	.tup a.tuplink img{ display: none;}
+	.tup a.tuplink span{ background: #004d7f; display:block; padding: 1em 0; width: 90%; margin: 0 5% 1em; -webkit-border-radius: 5px; border-radius: 5px; -webkit-box-shadow: none; box-shadow: none;}
+	.tup a.family span{ background: #96c85a;}
+	.tup a:hover.family span{ background: #f17230;}
+	.tup a.celebrity span{ background: #fbc940;}
+	.tup a:hover.celebrity span{ background: #5a2a6c;}
+	.tup a.academy span{ background: #000;}
+	.tup a:hover.academy span{ background: #666;}
+	
+	footer{ font-size: 1.6em; line-height: 1.5em; padding: 0;}
+	footer a{ display: inline-block; text-align: center; width: inherit; border-left: 1px solid #0a3c60; height: inherit; background-repeat: no-repeat; background-position: center center;}
+	footer a:first-child{ border-left: 0;}
+	footer span{ display: none;}
+	/* footer a.link-game{ display: none;}
+	footer a.link-copy{ background-image:url(../images/footer/copyright.png);}
+	footer a.link-conditions{ background-image:url(../images/footer/conditions.png);}
+	footer a.link-concours{ background-image:url(../images/footer/concours.png);}
+	footer a.link-shop{ background-image:url(../images/footer/boutique.png);}
+	footer a.link-facebook{ background-image:url(../images/footer/facebook.png);}
+	footer a.link-contact{ background-image:url(../../images/footer/mail.png);} */
+	footer a:hover{ background-color: #0a3c60;}
+}
+@media screen and (max-width:589px){
+	header{ overflow: hidden;}
+	header hgroup h1{ margin-top: 100px; left: 50%; margin-left: -130px; width: 261px; height: 175px;}
+	header hgroup span{ margin-top: 280px;}
+	.describe .step-01,
+	.describe .step-02{ display: none;}
+	
+	.box-tup .box-components{ float: left; position: relative; width: 100%; height: auto; text-align: center; left: 0; margin-left: 0; margin: 0 auto; top: 0;}
+	.box-components img{ position: relative; width: 80%;}
+	.box-components .boxtup{ right: 0; top: 0;}
+	.box-components .bagtup, .box-components .timertup, .box-components .cardstup{ display: none;}
+	.box-tup ul{ list-style: none; float: left; position: relative; right: 0; bottom: 0;}
+	.app ul li{ width: 40%;}
+}
+@media screen and (max-width:589px){
+	footer a{ width: 33%;  border-top: 1px solid #0a3c60;}
+}

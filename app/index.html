@@ -1,0 +1,126 @@
+<!doctype html>
+<html style="height: 100%; overflow: hidden;">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Time's Up! Party</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Time's Up! Party pour vous et vos amis.">
+    <meta name="keywords" content="Time's Up!, Party, Amis, Ambiance, carte, décrivez, mimez, Repos Production">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/tup-party.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/responsive.css" />
+
+    <script src="/vendors/jquery.min.1.9.1.js"></script>
+
+</head>
+
+<body style="height: 100%; overflow: hidden;">
+    <div id="preloader">
+        <div id="status"><img src="images/preloader.gif" title="Loading Time's Up! Party" alt="Loading Time's Up! Party"></div>
+    </div>
+
+    <section class="htp" style="height: 100%;">
+        <div class="htp_inside" style="height: 100%;">
+            <div class="htp_cards" style="height: 100%;">
+                <div class="htp_cards_level_2" style="height: 100%;">
+                    <img src="images/layout/rules-top-border.png" title="Time's Up! Party" alt="Time's Up! Party" class="border-top">
+
+                    <div class="intro-round" style="height: 100%;">
+                        <h2><strong>Bienvenue</strong><br>dans Time's Up! Party<img src="images/layout/interrogation.png" title="Time's Up! Party" alt="Time's Up! Party" data-sr="enter bottom and hustle 100px over 2.5s"></h2>
+                        <div id="Bienvenue">
+                            <p>Ecrits le numéro de ton équipe</p>
+                            <input type="number" id="playerNumber" />
+                            <button onclick="getPlayerNumber()">Send</button>
+                        </div>
+
+                        <div id="addWordSection" style="display: none;">
+                            <h1>Ajout X mot</h1>
+                            <input type="text" id="addWord" />
+                            <button onclick="sendWord()">Send</button>
+                            <button onclick="startPlay()">Finish</button>
+                        </div>
+
+                        <div id="playSession" style="display: none;">
+                            <p id="score">Score de l'équipe</p>
+                            <p id="startTimmer">TIMER</p>
+                            <button onclick="startTimmer()">Start</button>
+                        </div>
+                        <div id="guessSection" style="display: none;">
+                            <p id="wordRamdom">Mot a faire deviner/ Vider à la fin du timer</p>
+                            <button onclick="otherWord()">il a !</button>
+                            <button onclick="pending()">pass</button>
+                        </div>
+                    </div>
+                    <!-- End of round -->
+
+                    <!-- End of htp-cards -->
+                </div>
+            </div>
+        </div>
+        <!-- End of htp-inside -->
+    </section>
+
+
+    <script src='js/scrollReveal.js'></script>
+    <script>
+        window.sr = new scrollReveal();
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.down-footer').click(function() {
+                var offset = $('.intro').offset();
+                $('html,body').animate({
+                    scrollTop: offset.top
+                }, 1000);
+            });
+            $('.down-intro').click(function() {
+                var offset = $('.content-repere').offset();
+                $('html,body').animate({
+                    scrollTop: offset.top
+                }, 1000);
+            });
+            $('.down-htp').click(function() {
+                var offset = $('.htp').offset();
+                $('html,body').animate({
+                    scrollTop: offset.top
+                }, 1000);
+            });
+            $('.down-app').click(function() {
+                var offset = $('.app').offset();
+                $('html,body').animate({
+                    scrollTop: offset.top
+                }, 1000);
+            });
+            $('.down-download').click(function() {
+                var offset = $('.download').offset();
+                $('html,body').animate({
+                    scrollTop: offset.top
+                }, 1000);
+            });
+            $('.down-gamme').click(function() {
+                var offset = $('.tup').offset();
+                $('html,body').animate({
+                    scrollTop: offset.top
+                }, 1000);
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        $(window).load(function() { // makes sure the whole site is loaded
+                $('#status').fadeOut(); // will first fade out the loading animation
+                $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+                $('body').delay(350).css({
+                    'overflow': 'visible'
+                });
+            })
+            //]]>
+    </script>
+</body>
+
+</html>

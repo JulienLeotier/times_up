@@ -1,0 +1,947 @@
+@import url('reset.css');
+
+/* USED COLORS
+Jaune #ffdb2e
+Orange #f38230
+Bleu #007cc3
+
+*/
+
+
+/* GENERAL */
+
+body {
+    background: #ffdb2e;
+    text-align: center;
+    color: #000;
+}
+
+a {
+    color: #000;
+}
+
+.clear {
+    clear: both;
+}
+
+
+/* PRELOADER */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffdb2e;
+    /* change if the mask should have another color then white */
+}
+
+#status {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    /* centers the loading animation horizontally one the screen */
+    top: 50%;
+    /* centers the loading animation vertically one the screen */
+    background-image: url(../../images/preloader.gif);
+    /* path to your loading animation */
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: -50px 0 0 -50px;
+    /* is width and height divided by two */
+}
+
+
+/* NAV */
+
+nav {
+    float: left;
+    background: #fff;
+    width: 100%;
+    position: fixed;
+    padding: 0 0;
+    text-align: center;
+    -webkit-box-shadow: 0 0 40px 0 #f38230;
+    box-shadow: 0 0 40px 0 #f38230;
+}
+
+nav a.rprod {
+    width: 37px;
+    height: 43px;
+    margin-left: 2%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+    background: url(../images/layout/repos-production-logo.png) no-repeat;
+    text-indent: -9999px;
+}
+
+nav a:hover.rprod {}
+
+nav a {
+    text-decoration: none;
+}
+
+nav ul {
+    width: 80%;
+    float: left;
+    margin-top: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    border-left: 1px solid #000;
+    padding: 0 0.5em;
+}
+
+nav ul li:first-child {
+    border-left: 0 none;
+}
+
+footer {
+    background: #004974;
+    color: #5497be;
+    padding: 0.75em 0 0.75em;
+}
+
+footer li {
+    display: inline-block;
+    border-left: 1px solid #5497be;
+    padding: 0 0.5em;
+}
+
+footer li:first-child {
+    border-left: 0 none;
+}
+
+footer a {
+    color: #5497be;
+    text-decoration: none;
+}
+
+footer {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+footer span.name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* INTRO ET VIDEO */
+
+.intro {
+    position: relative;
+    background: url(../images/layout/gradient.png) no-repeat center -400px fixed;
+    background-size: 100% auto;
+    overflow: hidden;
+}
+
+.intro_inside {
+    background: url(../images/layout/circles.png) no-repeat center -400px fixed;
+    background-size: 100% auto;
+}
+
+.intro h1 {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -225px;
+    width: 450px;
+}
+
+.intro h1 img {
+    width: 100%;
+}
+
+.border-intro {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.youtube {
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    background: #fff;
+    width: 600px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    left: 50%;
+    margin-left: -320px;
+    margin-top: 300px;
+    -webkit-box-shadow: 0 0 40px 0 #f38230;
+    box-shadow: 0 0 40px 0 #f38230;
+}
+
+.youtube .video {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    overflow: hidden;
+}
+
+.youtube .video iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.intro_inside h2 {
+    background: #fff065;
+    border: 4px solid #fff;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 0 40px 0 #f38230;
+    box-shadow: 0 0 40px 0 #f38230;
+    text-align: center;
+    position: absolute;
+    left: -100px;
+    padding: 0.15em 1.5em;
+    -ms-transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    transform: rotate(-7deg);
+    bottom: -50px;
+}
+
+.intro_inside h2 .exclamation {
+    position: absolute;
+    right: 0;
+    top: -30px;
+}
+
+.explosion {
+    position: relative;
+    padding-top: 800px;
+    float: left;
+    left: 50%;
+    margin-left: -600px;
+}
+
+.explosion .card-01,
+.explosion .card-02,
+.explosion .card-03,
+.explosion .card-04,
+.explosion .card-05,
+.explosion .card-06,
+.explosion .card-07,
+.explosion .card-08,
+.explosion .card-09,
+.explosion .card-10,
+.explosion .card-11,
+.explosion .card-12,
+.explosion .card-13,
+.explosion .card-14,
+.explosion .card-15,
+.explosion .card-16,
+.explosion .card-17,
+.explosion .card-18,
+.explosion .card-19,
+.explosion .sablier-tup {
+    position: absolute;
+}
+
+.explosion .card-01 {
+    left: 180px;
+    bottom: 850px;
+}
+
+.explosion .card-02 {
+    left: 200px;
+    bottom: 550px;
+}
+
+.explosion .card-03 {
+    left: 210px;
+    bottom: 450px;
+}
+
+.explosion .card-04 {
+    left: 860px;
+    bottom: 800px;
+}
+
+.explosion .card-05 {
+    left: 810px;
+    bottom: 500px;
+}
+
+.explosion .card-06 {
+    left: 790px;
+    bottom: 420px;
+}
+
+.explosion .card-07 {
+    left: 660px;
+    bottom: 430px;
+}
+
+.explosion .card-08 {
+    left: 30px;
+    bottom: 350px;
+}
+
+.explosion .card-09 {
+    left: 60px;
+    bottom: 285px;
+}
+
+.explosion .card-10 {
+    left: 10px;
+    bottom: 160px;
+}
+
+.explosion .card-11 {
+    left: -10px;
+    bottom: 320px;
+}
+
+.explosion .card-12 {
+    left: -50px;
+    bottom: 350px;
+}
+
+.explosion .card-13 {
+    left: -20px;
+    bottom: 230px;
+}
+
+.explosion .card-14 {
+    left: 165px;
+    bottom: 340px;
+}
+
+.explosion .card-15 {
+    left: 240px;
+    bottom: 180px;
+}
+
+.explosion .card-16 {
+    left: 120px;
+    bottom: 200px;
+}
+
+.explosion .card-17 {
+    left: 250px;
+    bottom: 230px;
+}
+
+.explosion .card-18 {
+    left: 230px;
+    bottom: 110px;
+}
+
+.explosion .card-19 {
+    left: 80px;
+    bottom: 50px;
+}
+
+.explosion .sablier-tup {
+    left: 30px;
+    bottom: 50px;
+}
+
+.txt-explosion {
+    float: left;
+    width: 600px;
+    text-align: left;
+    margin-left: 440px;
+    padding-bottom: 250px;
+}
+
+.txt-explosion .blue {
+    color: #007fc3;
+    margin-top: 1em;
+}
+
+.bag {
+    position: absolute;
+    float: left;
+    left: 0;
+    bottom: 0;
+}
+
+.bag-back {
+    position: absolute;
+    float: left;
+    left: 0;
+    bottom: 0;
+}
+
+
+/* CONTENT */
+
+.content {
+    background: #fff;
+    position: relative;
+}
+
+.site-inside {
+    width: 900px;
+    margin: 0 auto;
+    position: relative;
+    text-align: left;
+}
+
+.box-tup-content {
+    position: absolute;
+    left: 80px;
+}
+
+.txt-content {
+    position: absolute;
+    left: 400px;
+}
+
+.txt-content h2 {
+    margin-top: 0.35em;
+    color: #f38230;
+}
+
+.txt-content p {
+    margin-top: 0.75em;
+}
+
+.content ul {
+    list-style: none;
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+}
+
+.content li {
+    width: 86px;
+    height: 63px;
+    padding-top: 23px;
+    display: block;
+    border: 4px solid #ffca30;
+    float: left;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 0.75em;
+    text-align: center;
+    background: #fff5d3;
+    color: #007cc3;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.content li span {
+    display: block;
+}
+
+
+/* HOW TO PLAY */
+
+.htp {
+    position: relative;
+    background: url(../images/layout/gradient.png) repeat-y center -400px fixed;
+    background-size: 100% auto;
+    border-bottom: 1px solid #fec200;
+}
+
+.htp_inside {
+    background: url(../images/layout/circles.png) center -400px fixed;
+    background-size: 100% auto;
+}
+
+.htp_cards {
+    background: url(../images/layout/fond-cartes-2.png) repeat center top fixed;
+    background-size: 100% auto;
+}
+
+.htp_cards_level_2 {
+    background: url(../images/layout/fond-cartes.png) repeat center -800px;
+    background-size: 100% auto;
+    padding: 150px 0;
+}
+
+.htp .border-top {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.htp .border-bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.htp h2 {
+    color: #007cc3;
+}
+
+.intro-round {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.intro-round h2 {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.intro-round h2 img {
+    position: absolute;
+    right: -10px;
+    bottom: -85px;
+}
+
+.round {
+    margin-top: 100px;
+}
+
+.round h2 {
+    width: 100%;
+    background: url(../images/layout/line-title.png) no-repeat center 60px;
+}
+
+.round1 h2 span {
+    background: url(../images/layout/manche-1.png) no-repeat center top;
+    text-indent: -9999px;
+    width: 388px;
+    height: 179px;
+    display: block;
+    margin: 0 auto;
+}
+
+.round2 h2 span {
+    background: url(../images/layout/manche-2.png) no-repeat center top;
+    text-indent: -9999px;
+    width: 428px;
+    height: 180px;
+    display: block;
+    margin: 0 auto;
+}
+
+.round3 h2 span {
+    background: url(../images/layout/manche-3.png) no-repeat center top;
+    text-indent: -9999px;
+    width: 382px;
+    height: 180px;
+    display: block;
+    margin: 0 auto;
+}
+
+.inside-round {
+    width: 380px;
+    margin: 0 auto;
+}
+
+.circle-txt {
+    width: 380px;
+    height: 380px;
+    background: #fff;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 3px solid #fcb731;
+    position: relative;
+}
+
+.round1 .circle-txt {
+    width: 320px;
+    height: 270px;
+    padding: 130px 20px 0 20px;
+}
+
+.round2 .circle-txt {
+    width: 320px;
+    height: 280px;
+    padding: 100px 30px 0;
+}
+
+.ico-1 {
+    position: absolute;
+    right: -180px;
+    bottom: -70px;
+}
+
+.round1 .sablier-tup {
+    position: absolute;
+    left: -90px;
+    bottom: 50px;
+}
+
+.ico-2 {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+}
+
+.ico-3 {
+    position: absolute;
+    bottom: 0;
+    right: 61px;
+}
+
+.bulle1 {
+    width: 203px;
+    height: 96px;
+    background: url(../images/layout/bulle.png) no-repeat;
+    display: block;
+    position: absolute;
+    color: #007cc3;
+    padding: 75px 20px 0;
+    right: -70px;
+    bottom: -100px;
+}
+
+.round1 .card-cleo {
+    position: absolute;
+    bottom: -80px;
+    right: 40px;
+}
+
+.round2 .card-cleo {
+    position: absolute;
+    bottom: -80px;
+    right: 40px;
+}
+
+.round3 .card-cleo {
+    position: absolute;
+    bottom: 40px;
+    right: -180px;
+}
+
+.bulle2 {
+    background: url(../images/layout/bulle-2.png) no-repeat;
+    width: 178px;
+    height: 95px;
+    display: block;
+    position: absolute;
+    color: #007cc3;
+    padding: 30px 0 0;
+    right: -140px;
+    bottom: 70px;
+}
+
+.expli-round-1 {
+    background: url(../images/layout/box-txt.png) no-repeat;
+    width: 582px;
+    height: 104px;
+    margin: 200px auto;
+    margin-bottom: 0;
+    padding: 60px 30px 0;
+}
+
+.prop {
+    position: absolute;
+    bottom: 0;
+}
+
+.expli-round-3 {
+    background: url(../images/layout/box-txt.png) no-repeat;
+    width: 582px;
+    height: 114px;
+    margin: 30px auto;
+    margin-bottom: 0;
+    padding: 50px 30px 0;
+}
+
+.expli-round-3 h3 {
+    color: #f17030;
+}
+
+.proposition-1 {
+    color: rgba(0, 95, 144, 0.2);
+    -ms-transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    transform: rotate(-7deg);
+    bottom: -100px;
+}
+
+.proposition-2 {
+    color: rgba(0, 95, 144, 0.6);
+    -ms-transform: rotate(12deg);
+    -webkit-transform: rotate(12deg);
+    transform: rotate(12deg);
+    right: 20px;
+    bottom: -150px;
+}
+
+.proposition-3 {
+    color: rgba(0, 95, 144, 1);
+    -ms-transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    transform: rotate(-7deg);
+    bottom: -220px;
+}
+
+
+/* APP */
+
+.app {
+    position: relative;
+    background: url(../images/layout/gradient.png) repeat-y center -400px fixed;
+    background-size: 100% auto;
+    padding-bottom: 190px;
+    padding-top: 60px;
+    border-top: 1px solid #ffeb5e;
+}
+
+.app h2 {
+    color: #000;
+}
+
+.app .border-bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.app ul {
+    text-align: center;
+    width: 100%;
+    margin-top: 3%;
+}
+
+.app ul li {
+    display: inline-block;
+    width: 10%;
+    margin-left: 5%;
+}
+
+.app ul li:first-child {
+    margin-left: 0;
+}
+
+.app ul li img {
+    width: 100%;
+}
+
+
+/* DOWNLOAD */
+
+.download {
+    background: #fef5a9;
+}
+
+.download h2 {
+    position: relative;
+    width: 490px;
+    margin: 0 auto;
+}
+
+.download h2 img {
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+}
+
+.download ul {
+    list-style: none;
+    width: 460px;
+    margin: 30px auto 0;
+}
+
+.download ul li {
+    float: left;
+    width: 230px;
+    text-align: center;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.download ul li img {
+    margin-bottom: 15px;
+}
+
+.download ul li span {
+    display: block;
+}
+
+.download ul li a {
+    text-decoration: none;
+}
+
+.download ul li img.arrow {
+    position: absolute;
+    left: 50%;
+    top: 120px;
+    margin-left: -25px;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.download ul li a:hover img.arrow {
+    top: 140px;
+}
+
+
+/* GAMME TUP */
+
+.tup {
+    background: #0883c5 url(../images/layout/circles-tup.jpg) no-repeat center top;
+    position: relative;
+    padding-top: 130px;
+    padding-bottom: 30px;
+    color: #fff;
+    text-shadow: 0 0 10px #1F628F;
+}
+
+.border-top {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.tup h2 {
+    margin-bottom: 20px;
+}
+
+.tup ul li {
+    display: inline-block;
+    list-style: none;
+}
+
+.tup ul {
+    background: url(../images/layout/cercle-gamme.png) no-repeat center 160px;
+    padding-bottom: 38px;
+}
+
+
+/* FACEBOOOK */
+
+.fb-share-button {
+    float: right;
+    margin: 20px 20px 0 0;
+}
+
+
+/* Z-INDEX */
+
+.htp .border-top,
+.ico-1,
+.explosion {
+    z-index: 1;
+}
+
+.ico-3,
+.explosion .card-03 {
+    z-index: 3;
+}
+
+.explosion .card-01 {
+    z-index: 2;
+}
+
+.card-cleo,
+.explosion .card-02 {
+    z-index: 4;
+}
+
+.bulle1,
+.explosion .card-04 {
+    z-index: 5;
+}
+
+.explosion .card-05 {
+    z-index: 7;
+}
+
+.explosion .card-06 {
+    z-index: 6;
+}
+
+.explosion .card-07 {
+    z-index: 8;
+}
+
+.explosion .card-18,
+.explosion .card-08 {
+    z-index: 9;
+}
+
+.explosion .card-09 {
+    z-index: 10;
+}
+
+.explosion .card-13 {
+    z-index: 11;
+}
+
+.explosion .card-11 {
+    z-index: 12;
+}
+
+.explosion .card-12 {
+    z-index: 13;
+}
+
+.explosion .card-17,
+.explosion .card-10 {
+    z-index: 14;
+}
+
+.explosion .card-15 {
+    z-index: 15;
+}
+
+.explosion .card-16 {
+    z-index: 16;
+}
+
+.explosion .card-14 {
+    z-index: 17;
+}
+
+.explosion .sablier-tup {
+    z-index: 18;
+}
+
+.intro-round h2 img,
+.proposition-3,
+.ico-2,
+.explosion .card-19 {
+    z-index: 20;
+}
+
+.bulle2,
+.bag {
+    z-index: 21;
+}
+
+.border-intro {
+    z-index: 22;
+}
+
+.youtube {
+    z-index: 99;
+}
+
+.video {
+    z-index: 100;
+}
+
+.intro_inside h2 {
+    z-index: 101;
+}
+
+h1 {
+    z-index: 111;
+}
+
+nav {
+    z-index: 998;
+}
+
+#preloader {
+    z-index: 999;
+}
