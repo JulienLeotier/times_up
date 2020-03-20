@@ -593,6 +593,40 @@ const getPlayerNumber = () => {
     localStorage.setItem('playerId', number.value);
     document.getElementById('Bienvenue').style.display = "none";
     document.getElementById('addWordSection').style.display = "block";
+    localStorage.setItem('nbWord', 0);
+    document.getElementById('myScore').innerHTML = `<strong>Mot</strong><br> ${0}`
+
+
+}
+const sendWord = () => {
+    let nbWord = Number(localStorage.getItem('nbWord'));
+    localStorage.setItem('nbWord', nbWord + 1);
+    nbWord = Number(localStorage.getItem('nbWord'));
+
+    document.getElementById('AddWordExplain').innerText = ""
+    let word = document.getElementById('addWord').value;
+    fetch(`/add_word`, {
+            method: 'POST',
+            body: JSON.stringify({ word }),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            document.getElementById('AddWordExplain').innerText = `Le mot ${response.word} a bien été ajouté`
+            document.getElementById('myScore').innerHTML = `<strong>Mots</strong><br> ${nbWord}`
+
+        })
+        .catch(error => console.log("Erreur : " + error));
+    console.log(word)
+}
+
+const startPlay = () => {
+    document.getElementById('addWordSection').style.display = "none";
+    document.getElementById('playSession').style.display = "block";
     setInterval(() => {
         var myHeaders = new Headers();
 
@@ -612,30 +646,6 @@ const getPlayerNumber = () => {
             })
             .catch(error => console.log("Erreur : " + error));
     }, 1000)
-}
-const sendWord = () => {
-    document.getElementById('AddWordExplain').innerHTML = ""
-    let word = document.getElementById('addWord').value;
-    fetch(`/add_word`, {
-            method: 'POST',
-            body: JSON.stringify({ word }),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(response => {
-            console.log(response)
-            document.getElementById('AddWordExplain').innerHTML = `Le mot ${response.word} a bien été ajouté`
-        })
-        .catch(error => console.log("Erreur : " + error));
-    console.log(word)
-}
-
-const startPlay = () => {
-    document.getElementById('addWordSection').style.display = "none";
-    document.getElementById('playSession').style.display = "block";
 
 }
 
@@ -653,7 +663,9 @@ const startTimmer = () => {
         .then(response => {
             if (response.message) {
                 document.getElementById('wordRamdom').innerText = `La manche est fini ! Félicitation`
-                document.getElementById("startTimmer").innerHTML = "FINI ATTENDS TON TOUR POUR RECOMMENCER";
+                document.getElementById("startTimmer").style.display = "none";
+                document.getElementById('btn-timmer').style.display = "block"
+                document.getElementById('explain').style.display = "block"
                 document.getElementById('guessSection').style.display = "none"
             } else {
                 console.log(response)
@@ -677,6 +689,9 @@ const startTimmer = () => {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Display the result in the element with id="demo"
+        document.getElementById('startTimmer').style.display = 'block'
+        document.getElementById('explain').style.display = "none"
+        document.getElementById('btn-timmer').style.display = "none"
         document.getElementById("startTimmer").innerHTML = seconds + "s ";
 
         // If the count down is finished, write some text
@@ -692,7 +707,9 @@ const startTimmer = () => {
                 .then(response => response.json())
                 .then(response => {
                     console.log(response)
-                    document.getElementById("startTimmer").innerHTML = "FINI ATTENDS TON TOUR POUR RECOMMENCER";
+                    document.getElementById("startTimmer").style.display = "none";
+                    document.getElementById('explain').style.display = "block"
+                    document.getElementById('btn-timmer').style.display = "block"
                     document.getElementById('guessSection').style.display = "none"
                 })
                 .catch(error => console.log("Erreur : " + error));
@@ -733,8 +750,11 @@ const otherWord = () => {
             localStorage.setItem('id', response.id)
             if (response.message) {
                 document.getElementById('wordRamdom').innerText = `La manche est fini ! Félicitation`
-                document.getElementById("startTimmer").innerHTML = "FINI ATTENDS TON TOUR POUR RECOMMENCER";
+                document.getElementById("startTimmer").style.display = "none";
+                document.getElementById('explain').style.display = "block"
                 document.getElementById('guessSection').style.display = "none"
+                document.getElementById('btn-timmer').style.display = "block"
+
             } else {
                 document.getElementById('wordRamdom').innerText = `${response.word}`
             }
@@ -757,8 +777,10 @@ const pending = () => {
             localStorage.setItem('id', response.id)
             if (response.message) {
                 document.getElementById('wordRamdom').innerText = `La manche est fini ! Félicitation`
-                document.getElementById("startTimmer").innerHTML = "FINI ATTENDS TON TOUR POUR RECOMMENCER";
+                document.getElementById("startTimmer").style.display = "none";
+                document.getElementById('explain').style.display = "block"
                 document.getElementById('guessSection').style.display = "none"
+                document.getElementById('btn-timmer').style.display = "block"
             } else {
                 document.getElementById('wordRamdom').innerText = `${response.word}`
             }

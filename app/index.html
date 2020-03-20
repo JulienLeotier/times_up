@@ -1,5 +1,5 @@
 <!doctype html>
-<html style="height: 100%; overflow: hidden;">
+<html style="overflow: hidden;">
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,9 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="css/tup-party.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/responsive.css" />
+    <link type="text/css" rel="stylesheet" href="./css/materialize.min.css" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
     <script src="/vendors/jquery.min.1.9.1.js"></script>
 
@@ -35,27 +38,47 @@
                             <img src="images/layout/interrogation.png" title="Time's Up! Party" alt="Time's Up! Party" data-sr="enter bottom and hustle 100px over 2.5s">
                         </h2>
                         <div id="Bienvenue">
-                            <p>Ecrits le numéro de ton équipe</p>
-                            <input type="number" id="playerNumber" />
-                            <button onclick="getPlayerNumber()">Send</button>
+                            <div class="expli-round-1">Ecrits le numéro de ton équipe </div>
+                            <input type="number" id="playerNumber" style="color: #f38230; background-color: white; margin-top: 10px; font-size: large; text-align: center; width: 15%; margin-right: 5px ;" />
+                            <button onclick="getPlayerNumber()" class="btn waves-effect waves-light" style="background-color: #f38230;" type="submit" name="action">Envoyer
+                                <i class="material-icons right">send</i>
+                              </button>
                         </div>
 
                         <div id="addWordSection" style="display: none;">
-                            <h1>Ajouter un mot</h1>
-                            <input type="text" id="addWord" />
-                            <p id="AddWordExplain"></p>
-                            <button onclick="sendWord()">Send</button>
-                            <button onclick="startPlay()">Finish</button>
+                            <div class="expli-round-1">Ajouter un mot</div>
+                            <input type="text" id="addWord" style="color: #f38230; background-color: white; margin-top: 10px; font-size: large; text-align: center; width: 70%;" onkeyup="this.value = this.value.toUpperCase();" />
+                            <h2 id="AddWordExplain"></h2>
+                            <button onclick="sendWord()" class="waves-effect waves-light btn-large" style="background-color: #f38230;" type="submit" name="action">Envoyer
+                                <i class="material-icons right">send</i>
+                              </button>
+                            <button onclick="startPlay()" class="waves-effect waves-light btn-large" style="background-color: #f38230;" type="submit" name="action">Fini
+                                <i class="material-icons right">check</i>
+                              </button>
                         </div>
 
                         <div id="playSession" style="display: none;">
-                            <p id="startTimmer">TIMER</p>
-                            <button onclick="startTimmer()">Start</button>
+                            <h5 id="explain" style="display: none; background-color: white; color: #007cc3">FINI ATTENDS TON TOUR POUR RECOMMENCER</h5>
+                            <h3 id="startTimmer" style="margin: 0; display: none; color: #f38230; background-color: white; border-radius: 50%; width: 100px; height: 100px; margin: auto; line-height: 2;">TIMER</h3>
+                            <button id="btn-timmer" onclick="startTimmer()" class="waves-effect waves-light btn-large" style="background-color: #f38230; margin: auto;" type="submit" name="action">START
+                                    <i class="material-icons right">timer</i>
+                                </button>
+
                         </div>
                         <div id="guessSection" style="display: none;">
-                            <p id="wordRamdom">Mot a faire deviner/ Vider à la fin du timer</p>
-                            <button onclick="otherWord()">il a !</button>
-                            <button onclick="pending()">pass</button>
+                            <div class="expli-round-3 ">
+                                <h4 style="color: rgb(243, 130, 48); margin: 0;">Mot a faire deviner!</h4>
+                                <h4 id="wordRamdom" style="margin: 0;">chat</h4>
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <button id="btn-timmer" onclick="otherWord()" class="waves-effect waves-light btn-large" style="background-color: #f38230; margin: auto;" type="submit" name="action">OK
+                                    <i class="material-icons right">check_circle</i>
+                                </button>
+                                <button id="btn-timmer" onclick="pending()" class="waves-effect waves-light btn-large" style="background-color: #f38230; margin: auto;" type="submit" name="action">PASSER
+                                    <i class="material-icons right">autorenew</i>
+                                </button>
+                            </div>
+
                         </div>
                     </div>
                     <!-- End of round -->
@@ -74,7 +97,7 @@
     </script>
 
 
-    <script type="text/javascript">
+    <script type="text/javascript ">
         $(document).ready(function() {
             $('.down-footer').click(function() {
                 var offset = $('.intro').offset();
@@ -115,7 +138,7 @@
         });
     </script>
 
-    <script type="text/javascript">
+    <script type="text/javascript ">
         //<![CDATA[
         $(window).load(function() { // makes sure the whole site is loaded
                 $('#status').fadeOut(); // will first fade out the loading animation
@@ -139,6 +162,7 @@
             console.log(ev);
         }
     </script>
+    <script type="text/javascript " src="js/materialize.min.js "></script>
 </body>
 
 </html>

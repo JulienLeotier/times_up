@@ -495,7 +495,7 @@ footer span.name {
 .intro-round h2 img {
     position: absolute;
     right: -10px;
-    bottom: -85px;
+    bottom: 50px;
 }
 
 .round {
@@ -627,11 +627,14 @@ footer span.name {
     bottom: 70px;
 }
 
+html {
+    height: 100%;
+}
+
 .expli-round-1 {
     background: url(../images/layout/box-txt.png) no-repeat;
-    width: 582px;
+    width: 100%;
     height: 104px;
-    margin: 200px auto;
     margin-bottom: 0;
     padding: 60px 30px 0;
 }
@@ -643,11 +646,11 @@ footer span.name {
 
 .expli-round-3 {
     background: url(../images/layout/box-txt.png) no-repeat;
-    width: 582px;
-    height: 114px;
+    width: 100%;
+    height: 100%;
     margin: 30px auto;
     margin-bottom: 0;
-    padding: 50px 30px 0;
+    padding: 35px 30px 0;
 }
 
 .expli-round-3 h3 {

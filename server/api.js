@@ -1,5 +1,4 @@
 const client = require('./connection');
-var path = require('path');
 
 var WebSocketServer = require('ws').Server,
     wss = new WebSocketServer({ port: 40510 })
@@ -86,11 +85,31 @@ const endofManche = async() => {
     return { message: 'manche fini' }
 }
 
+const princess_legend = async(req, res) => {
+    const role = await client.query('SELECT * FROM role ORDER BY RANDOM() LIMIT 1');
+    await client.query('DELETE FROM role WHERE id = $1', [role.rows[0].id])
+    return res.status(200).json(role.rows[0])
+}
+
+const resetRole = async(req, res) => {
+    await client.query('insert into role(personage) VALUES($1)', ['princess']);
+    await client.query('insert into role(personage) VALUES($1)', ['fee']);
+    await client.query('insert into role(personage) VALUES($1)', ['la méchante reine']);
+    await client.query('insert into role(personage) VALUES($1)', ['le garde']);
+    await client.query('insert into role(personage) VALUES($1)', ['le chat']);
+    await client.query('insert into role(personage) VALUES($1)', ['espion']);
+    await client.query('insert into role(personage) VALUES($1)', ['la servante']);
+
+    return res.status(200).json('le role est reset');
+
+}
 module.exports = {
     addWord,
     getOneWord,
     endOfTurn,
     addWordFound,
     createPlayer,
-    getPlayerScore
+    getPlayerScore,
+    princess_legend,
+    resetRole
 }

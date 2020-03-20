@@ -27,6 +27,20 @@ const createTableWordAll = () => {
     })
 }
 
+const createTableRole = () => {
+    const queryText = `
+    CREATE TABLE IF NOT EXISTS
+    role(
+      id SERIAL PRIMARY KEY,
+      personage VARCHAR(255) NOT NULL
+    )`;
+    client.query(queryText, (err, res) => {
+        if (err) {
+            throw err;
+        }
+    })
+}
+
 const createTablePendingWord = () => {
     const queryText = `
   CREATE TABLE IF NOT EXISTS
@@ -83,6 +97,7 @@ score_id INTEGER NOT NULL
         }
     })
 }
+createTableRole();
 createTableWord();
 createTablePendingWord();
 createTablefoundWord();

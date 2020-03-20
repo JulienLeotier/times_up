@@ -346,9 +346,13 @@
         width: auto;
     }
     .intro-round h2 img {
-        width: 100px;
-        right: -10px;
-        bottom: -50px;
+        display: none;
+    }
+    .htp .border-top {
+        display: none;
+    }
+    .htp_cards_level_2 {
+        padding: 0;
     }
 }
 

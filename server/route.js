@@ -33,4 +33,6 @@ app.post('/end_turn', api.endOfTurn);
 app.get('/favicon.ico', (req, res) => {
     res.send('favicon.ico')
 })
+app.get('/role', api.princess_legend);
+app.get('/addRole', api.resetRole)
 module.exports = app;
